@@ -4,11 +4,13 @@ const port = 5000
 var cors = require('cors')
 
 app.use(cors())
-// const courses = require('/data/courses.json')
+const courses = require('./data/courses.json')
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
-
+app.get('/courses', (req, res) => {
+    res.send(rooms)
+})
 
 app.listen(port, () => {
     console.log(`Server is running on ${port}`)

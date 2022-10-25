@@ -4,18 +4,22 @@ const port = 5000
 var cors = require('cors')
 
 app.use(cors())
+
 const courses = require('./data/courses.json')
+
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
+
 app.get('/courses', (req, res) => {
-    res.send(rooms)
+    res.send(courses)
 })
+
 app.get('/courses/:id', (req, res) => {
     const id = req.params.id;
     const selectedNews = courses.find(n => n._id === id);
     res.send(selectedNews)
 })
 app.listen(port, () => {
-    console.log(`Server is running on ${port}`)
+    console.log(`Server is running on courses ${port}`)
 })
